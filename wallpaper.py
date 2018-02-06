@@ -19,4 +19,5 @@ with Image(filename=PDF_SOURCE.format(page), resolution=160) as calendar:
 		background.composite_channel('default_channels', calendar, 'blend', MARGIN_LEFT, MARGIN_TOP)
 		background.save(filename=OUTPUT)
 		
-os.system("osascript -e \"tell application \\\"Finder\\\" to set desktop picture to POSIX file \\\"/Users/apple/Desktop/Wallpaper/" + OUTPUT + "\\\"\"")
+address = os.getcwd() + "/" + OUTPUT 
+os.system("osascript -e \"tell application \\\"Finder\\\" to set desktop picture to POSIX file \\\"" + address + "\\\"\"")
