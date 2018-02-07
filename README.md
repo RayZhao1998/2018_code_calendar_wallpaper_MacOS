@@ -4,7 +4,7 @@
 
 ### 效果图：
 
-![](turing6.jpg)
+![](example.jpg)
 
 ### 一键换壁纸动图展示
 ![](Jietu20180206-174543-HD.gif)
@@ -13,22 +13,17 @@
 
 - Python3 
 - ImgaeMagick
-
-有一些同学说会出现`no module named wand`的情况，我特意去wand官网查看了一下，`Wand is a Python binding of ImageMagick, so you have to install it as well`所以必须安装ImgaeMagick,这里只给出官网上的Mac OS的安装方法
+  
+有一些同学说会出现`no module named wand`的情况，我特意去wand官网查看了一下，`Wand is a Python binding of ImageMagick, so you have to install it as well`所以必须安装ImgaeMagick，但由于现在pip上面的Wand仅支持imagemagick6，而homebrew等版本默认为7。
 ```
-$ brew install imagemagick
-# If seam carving (Image.liquid_rescale()) is needed you have install liblqr as well
-$ brew install imagemagick --with-liblqr
-$ sudo port install imagemagick
-$ export MAGICK_HOME=/opt/local
-```
-当然，下面的采坑经历我也给出一种安装方式，亲测有效
-```
-$ brew uninstall --force imagemagick
 $ brew install imagemagick@6
 $ echo 'export PATH="/usr/local/opt/imagemagick@6/bin:$PATH"' >> ~/.bash_profile
 $ brew link imagemagick@6 --force
+```
+- Wand
 
+```
+pip install -r requirements.txt
 ```
 
 - Ghostscript `brew install ghostscript`即可
